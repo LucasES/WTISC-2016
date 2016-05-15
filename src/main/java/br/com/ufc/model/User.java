@@ -21,7 +21,7 @@ public class User {
 	@Column(name = "email", length = 30)
 	private String email;
 	
-	@Column(length = 10, nullable = false)
+	@Column(length = 11, nullable = false)
 	private String cpf;
 
 	public User() {

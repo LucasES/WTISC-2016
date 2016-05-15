@@ -33,7 +33,7 @@ public class UserService implements IUserService{
 	}
 
 	@Override
-	public User udpate(User user) {
+	public User update(User user) {
 		
 		if(!(repository.exists(user.getId()))){
 			throw new EmptyResultDataAccessException(1);
