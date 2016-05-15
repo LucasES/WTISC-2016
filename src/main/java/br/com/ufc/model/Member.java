@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "integrantes")
-public class Members {
+@Table(name = "integrante")
+public class Member {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,11 +21,11 @@ public class Members {
 	@Column(name = "funcao", nullable = false)
 	private String function;
 
-	public Members() {
+	public Member() {
 		super();
 	}
 
-	public Members(String name, String function) {
+	public Member(String name, String function) {
 		super();
 		this.name = name;
 		this.function = function;
@@ -72,7 +72,7 @@ public class Members {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Members other = (Members) obj;
+		Member other = (Member) obj;
 		if (function == null) {
 			if (other.function != null)
 				return false;

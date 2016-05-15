@@ -25,7 +25,7 @@ public class Event {
 	
 	@ManyToOne
 	@JoinColumn(name = "integrantes_id")
-	private Members members;
+	private Member members;
 	
 	@Column(name = "descricao", nullable = false)
 	private String description;
@@ -70,11 +70,11 @@ public class Event {
 		this.category = category;
 	}
 
-	public Members getMembers() {
+	public Member getMembers() {
 		return members;
 	}
 
-	public void setMembers(Members members) {
+	public void setMembers(Member members) {
 		this.members = members;
 	}
 
