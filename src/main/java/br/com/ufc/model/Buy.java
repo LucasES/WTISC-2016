@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "compra")
 public class Buy {
@@ -28,6 +30,7 @@ public class Buy {
 	private Ticket ticket;
 	
 	@Column(name = "data")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "UTC")
 	private Date dateBuy;
 	
 	@Column(nullable = false)

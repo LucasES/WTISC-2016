@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "evento")
 public class Event {
@@ -31,6 +33,7 @@ public class Event {
 	private String description;
 	
 	@Column(name = "data_evento", nullable = false)
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "UTC")
 	private Date eventDate;
 	
 	@Column(name = "resumo")
