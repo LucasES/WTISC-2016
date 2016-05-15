@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "tipo_ambiente")
 public class EnvironmentType {
@@ -16,6 +18,7 @@ public class EnvironmentType {
 	private Long id;
 	
 	@Column(name = "descricao", nullable = false)
+	@JsonProperty(value = "descricao")
 	private String description;
 
 	public EnvironmentType() {

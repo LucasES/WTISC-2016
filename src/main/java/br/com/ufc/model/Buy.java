@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "compra")
@@ -23,20 +24,25 @@ public class Buy {
 	
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
+	@JsonProperty(value = "usuario")
 	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "ingresso_id")
+	@JsonProperty(value = "ingresso")
 	private Ticket ticket;
 	
 	@Column(name = "data")
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "UTC")
+	@JsonProperty(value = "data")
 	private Date dateBuy;
 	
 	@Column(nullable = false)
+	@JsonProperty(value = "total")
 	private Float total;
 	
 	@Column(name = "quantidade", nullable = false)
+	@JsonProperty(value = "quantidade")
 	private Integer quantity;
 
 	public Buy() {

@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "evento")
@@ -23,23 +24,29 @@ public class Event {
 	
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
+	@JsonProperty(value = "categoria")
 	private Category category;
 	
 	@ManyToOne
 	@JoinColumn(name = "integrantes_id")
+	@JsonProperty(value = "membro")
 	private Member members;
 	
 	@Column(name = "descricao", nullable = false)
+	@JsonProperty(value = "descricao")
 	private String description;
 	
 	@Column(name = "data_evento", nullable = false)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "UTC")
+	@JsonProperty(value = "data")
 	private Date eventDate;
 	
 	@Column(name = "resumo")
+	@JsonProperty(value = "resumo")
 	private String summary;
 	
 	@Column(name = "imagem")
+	@JsonProperty(value = "imagem")
 	private String image;
 
 	public Event() {

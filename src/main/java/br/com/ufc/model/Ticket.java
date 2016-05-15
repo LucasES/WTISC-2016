@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "ingresso")
 public class Ticket {
@@ -19,12 +21,15 @@ public class Ticket {
 	
 	@ManyToOne
 	@JoinColumn(name = "evento_id")
+	@JsonProperty(value = "evento")
 	private Event event;
 	
 	@Column(name = "valor", nullable = false)
+	@JsonProperty(value = "valor")
 	private Float value;
 	
 	@Column(name = "tipo")
+	@JsonProperty(value = "tipo")
 	private Character type;
 
 	public Ticket() {

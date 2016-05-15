@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "integrante")
 public class Member {
@@ -16,9 +18,11 @@ public class Member {
 	private Long id;
 	
 	@Column(name = "nome", nullable = false)
+	@JsonProperty(value = "imagem")
 	private String name;
 	
 	@Column(name = "funcao", nullable = false)
+	@JsonProperty(value = "funcao")
 	private String function;
 
 	public Member() {

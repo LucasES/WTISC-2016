@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "ambiente")
 public class Environment {
@@ -19,23 +21,29 @@ public class Environment {
 	
 	@ManyToOne
 	@JoinColumn(name = "evento_id")
+	@JsonProperty(value = "evento")
 	private Event event;
 	
 	@ManyToOne
 	@JoinColumn(name = "setor_id")
+	@JsonProperty(value = "setor")
 	private Sector sector;
 	
 	@ManyToOne
 	@JoinColumn(name = "tipo_ambiente_id")
+	@JsonProperty(value = "ambiente")
 	private EnvironmentType environmentType;
 	
 	@Column(name = "descricao")
+	@JsonProperty(value = "descricao")
 	private String description;
 	
 	@Column(name = "local", nullable = false)
+	@JsonProperty(value = "local")
 	private String local;
 	
 	@Column(name = "referencia")
+	@JsonProperty(value = "referencia")
 	private String reference;
 
 	public Environment() {
