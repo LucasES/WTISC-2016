@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
 
 	@Column(name = "data_criacao", insertable = true, updatable = false)
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "Brazil/East")
