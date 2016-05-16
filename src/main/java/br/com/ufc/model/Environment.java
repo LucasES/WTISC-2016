@@ -31,7 +31,7 @@ public class Environment {
 	
 	@ManyToOne
 	@JoinColumn(name = "tipo_ambiente_id")
-	@JsonProperty(value = "ambiente")
+	@JsonProperty(value = "tipoAmbiente")
 	private EnvironmentType environmentType;
 	
 	@Column(name = "descricao")

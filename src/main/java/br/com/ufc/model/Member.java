@@ -18,7 +18,7 @@ public class Member {
 	private Long id;
 	
 	@Column(name = "nome", nullable = false)
-	@JsonProperty(value = "imagem")
+	@JsonProperty(value = "nome")
 	private String name;
 	
 	@Column(name = "funcao", nullable = false)

@@ -29,7 +29,7 @@ public class Event {
 	
 	@ManyToOne
 	@JoinColumn(name = "integrantes_id")
-	@JsonProperty(value = "membro")
+	@JsonProperty(value = "integrante")
 	private Member members;
 	
 	@Column(name = "descricao", nullable = false)
