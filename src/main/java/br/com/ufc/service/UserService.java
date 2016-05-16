@@ -47,4 +47,14 @@ public class UserService implements IUserService{
 		repository.delete(id);
 	}
 
+	@Override
+	public User findByEmailAdress(String email) {
+		return repository.findByEmailAdress(email);
+	}
+
+	@Override
+	public List<User> findByName(String name) {
+		return repository.findByName(name);
+	}
+
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ufc.model.User;
@@ -40,6 +41,20 @@ public class UserController {
 		User user = service.findOne(id);
 		
 		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/listar", method = RequestMethod.GET)
+	public ResponseEntity<User> findByEmailAddres(@RequestParam(value = "email") String email){
+		User user = service.findByEmailAdress(email);
+		
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/nome/{nome}", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> findByName(@PathVariable(value = "nome") String nome){
+		List<User> userList = service.findByName(nome);
+		
+		return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)

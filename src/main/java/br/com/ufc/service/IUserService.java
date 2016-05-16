@@ -10,6 +10,10 @@ public interface IUserService {
 	
 	public User findOne(long id);
 	
+	public User findByEmailAdress(String email);
+	
+	public List<User> findByName(String name);
+	
 	public User save(User user);
 	
 	public User update(User user);
