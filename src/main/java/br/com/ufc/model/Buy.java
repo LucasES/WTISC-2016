@@ -27,23 +27,22 @@ public class Buy {
 	@JsonProperty(value = "usuario")
 	private User user;
 	
-	@ManyToOne
-	@JoinColumn(name = "ingresso_id")
-	@JsonProperty(value = "ingresso")
-	private Ticket ticket;
-	
 	@Column(name = "data")
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone = "UTC")
 	@JsonProperty(value = "data")
-	private Date dateBuy;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss", timezone="Brazil/East", locale = "pt-BR")
+	private Date date;
 	
-	@Column(nullable = false)
+	@Column(name = "total", nullable = false)
 	@JsonProperty(value = "total")
 	private Float total;
 	
 	@Column(name = "quantidade", nullable = false)
 	@JsonProperty(value = "quantidade")
 	private Integer quantity;
+	
+	@Column(name = "ativo", nullable = false)
+	@JsonProperty(value = "ativo")
+	private Boolean active;
 
 	public Buy() {
 		super();
@@ -72,24 +71,16 @@ public class Buy {
 		return user;
 	}
 
-	public Ticket getTicket() {
-		return ticket;
-	}
-
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}
-
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public Date getDateBuy() {
-		return dateBuy;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setDateBuy(Date dateBuy) {
-		this.dateBuy = dateBuy;
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public Float getTotal() {
@@ -108,35 +99,12 @@ public class Buy {
 		this.quantity = quantity;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
-		result = prime * result + ((total == null) ? 0 : total.hashCode());
-		return result;
+	public Boolean getActive() {
+		return active;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Buy other = (Buy) obj;
-		if (quantity == null) {
-			if (other.quantity != null)
-				return false;
-		} else if (!quantity.equals(other.quantity))
-			return false;
-		if (total == null) {
-			if (other.total != null)
-				return false;
-		} else if (!total.equals(other.total))
-			return false;
-		return true;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 	
 }
