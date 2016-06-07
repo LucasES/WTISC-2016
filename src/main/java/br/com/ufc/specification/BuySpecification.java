@@ -29,6 +29,9 @@ public class BuySpecification {
 
 			@Override
 			public Predicate toPredicate(Root<Buy> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				
+				query.orderBy(cb.desc(root.<Float>get("total")));
+				
 				return cb.between(root.<Date>get("date"), fromDate, toDate);
 			}
 			
