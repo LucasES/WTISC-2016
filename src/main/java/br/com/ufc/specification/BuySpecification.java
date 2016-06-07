@@ -24,13 +24,23 @@ public class BuySpecification {
 		};
 	}
 	
-	public static Specification<Buy> allBuyBetween(final Date fromDate, final Date toDate, final boolean active) { 
+	public static Specification<Buy> allBuyBetween(final Date fromDate, final Date toDate) { 
 		return new Specification<Buy>() {
 
 			@Override
 			public Predicate toPredicate(Root<Buy> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.and(cb.between(root.<Date>get("date"), fromDate, toDate), cb.equal(root.<Boolean>get("active"), active));
-//				return cb.between(root.<Date>get("date"), fromDate, toDate);
+				return cb.between(root.<Date>get("date"), fromDate, toDate);
+			}
+			
+		};
+	}
+	
+	public static Specification<Buy> findByActive(final boolean active) {
+		return new Specification<Buy>() {
+
+			@Override
+			public Predicate toPredicate(Root<Buy> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.equal(root.<Boolean>get("active"), active);
 			}
 			
 		};

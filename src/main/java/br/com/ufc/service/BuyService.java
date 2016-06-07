@@ -61,7 +61,9 @@ public class BuyService implements IBuyService {
 		List<Buy> buyList = null;
 
 		if (fromDate != null && toDate != null) {
-			buyList = repository.findAll(Specifications.where(BuySpecification.allBuyBetween(fromDate, toDate,active)));
+			buyList = repository.findAll(Specifications
+					.where(BuySpecification.allBuyBetween(fromDate, toDate))
+					.and(BuySpecification.findByActive(active)));
 		}
 
 		return buyList;
